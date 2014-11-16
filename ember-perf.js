@@ -28,7 +28,7 @@ var Box = Ember.Object.extend({
 
 });
 
-var htmlbarsTemplate = Ember.HTMLBars.compile($('#htmlbars-box').text().trim());
+var htmlbarsTemplate = Ember.Handlebars.compile($('#htmlbars-box').text().trim());
 
 var BoxView = Ember.View.extend({
     template: htmlbarsTemplate,
@@ -36,7 +36,7 @@ var BoxView = Ember.View.extend({
 });
 
 var boxes;
-    
+
 // var App = Ember.Application.create();
 
 var emberInit = function() {
@@ -65,71 +65,6 @@ window.runEmber = function() {
 
 })();
 
-// The Ember+HTMLBars implementation:
-(function(){
-
-var Box = Ember.Object.extend({
-
-    top: 0,
-    left: 0,
-    content: 0,
-    count: 0,
-
-    tick: function() {
-        var count = this.get('count') + 1;
-        this.set('count', count);
-        this.set('top', Math.sin(count / 10) * 10);
-        this.set('left', Math.cos(count / 10) * 10);
-        this.set('color', count % 255);
-        this.set('content', count % 100);
-        this.set('style', this.computeStyle());
-    },
-
-    computeStyle: function() {
-        return 'top: ' + this.get('top') + 'px; left: ' +  this.get('left') +'px; background: rgb(0,0,' + this.get('color') + ');';
-    }
-
-});
-
-var htmlbarsTemplate = Ember.HTMLBars.compile($('#htmlbars-box').text().trim());
-
-var BoxView = Ember.View.extend({
-    usingHTMLBars: true,
-    template: htmlbarsTemplate,
-    classNames: ['box-view']
-});
-
-var boxes;
-    
-// var App = Ember.Application.create();
-
-var emberInit = function() {
-    boxes = _.map(_.range(N), function(i) {
-        var box = Box.create();
-        var view = BoxView.create({context: box});
-        view.appendTo('#grid');
-        box.set('number', i);
-        return box;
-    });
-};
-
-var emberAnimate = function() {
-    Ember.run(function() {
-        for (var i = 0, l = boxes.length; i < l; i++) {
-          boxes[i].tick();
-        }
-    });
-};
-
-
-window.runEmberHTMLBars = function() {
-    reset();
-    emberInit();
-    benchmarkLoop(emberAnimate);
-};
-
-})();
-   
 // Raw
 (function(){
 
