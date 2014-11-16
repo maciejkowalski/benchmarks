@@ -36,7 +36,7 @@ var BoxView = Ember.View.extend({
 });
 
 var boxes;
-
+    
 // var App = Ember.Application.create();
 
 var emberInit = function() {
@@ -64,7 +64,7 @@ window.runEmber = function() {
 };
 
 })();
-
+   
 // Raw
 (function(){
 
