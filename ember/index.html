@@ -1,0 +1,21 @@
+<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
+<script src="http://underscorejs.org/underscore-min.js"></script>
+<script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+<script src="http://builds.emberjs.com/tags/v1.7.0/ember.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="ember-perf.js"></script>
+
+<p>
+    This is a fork of <a href="http://jsfiddle.net/jashkenas/CGSd5/" target="_top">jashkenas's Ember/Backbone</a> benchmark to test Ember and raw JS. Note that this is just a simple benchmark: you wouldn't be doing this in an actual app.
+</p>
+
+<button onclick="runEmber()">Animate with Ember</button>
+<button onclick="runRawdog()">Animate with nothing</button>
+
+<p id="timing">&nbsp;</p>
+<div id="grid"></div>
+        
+<script type="text/x-htmlbars" id="htmlbars-box">
+    <div class="box" id="{{number}}" style="{{style}}"> {{content}}</div>
+</script>
