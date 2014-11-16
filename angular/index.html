@@ -1,0 +1,23 @@
+<script src='https://code.jquery.com/jquery-1.11.1.min.js'></script>
+<script src="http://underscorejs.org/underscore-min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js" ng:autobind="angularjsWrapper"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="angular-perf.js"></script>
+
+<body ng:app="animationApp" ng:controller="animationCtrl">
+<p>This is an AngularJS <a href="https://news.ycombinator.com/item?id=3616820">animation benchmark</a></p>
+    
+<div id="angularjsWrapper">
+  <button ng:click="runAngularjs()">Animate with AngularJS</button>
+  <button onclick="runRawdog()">Animate with nothing</button>
+
+  <p id="timing">&nbsp;</p>
+  <div id="grid">
+    <div class="box-view" ng:repeat="box in boxes">
+        <div class="box" ng:style="{top: box.top+'px', left: box.left+'px', background: 'rgb(0,0,'+box.color+')'}">{{box.content}}</div>
+    </div>
+  </div>
+    
+</div>
+</body>

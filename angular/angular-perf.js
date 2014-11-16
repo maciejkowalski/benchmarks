@@ -31,7 +31,7 @@ var animationApp = angular.module('animationApp', []);
 
 function animationCtrl($scope, $window, $rootScope) {
     var self = this;
-    var start, counter = 0;
+    var start, counter = 0, totalTime = 0;
     $scope.count = 0;
     $scope.boxes = new Array();
 
@@ -59,22 +59,23 @@ function animationCtrl($scope, $window, $rootScope) {
     }
 
     $scope.angularjsAnimate = function() {
-        if (counter == 0) start = new Date().getTime();
-        counter += 1;
-        if (counter == 100) {
-            console.log(new Date().getTime() - start);
-        }
+        var startDate = new Date();
         for (var i = 0; i < N; i++) {
             $scope.boxes[i].tick();
         }
         $rootScope.$apply();
+        var endDate = new Date();
+        totalTime += endDate - startDate;
+        counter += 1;
+        if (counter % 20 === 0) {
+          $('#timing').text('Performed ' + counter + ' iterations in ' + totalTime + ' ms (average ' + (totalTime / counter).toFixed(2) + ' ms per loop).');
+        }
         $window.timeout = _.defer($scope.angularjsAnimate);
     }
 
     $scope.runAngularjs = function() {
-        $window.reset();
         $scope.angularjsInit();
-        $window.benchmarkLoop($scope.angularjsAnimate);
+        $scope.angularjsAnimate();
     }
 }
 
