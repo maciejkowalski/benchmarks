@@ -32,7 +32,6 @@ var htmlbarsTemplate = Ember.Handlebars.compile($('#handlebars-box').text().trim
 
 var BoxView = Ember.View.extend({
     template: htmlbarsTemplate,
-    // templateName: "box",
     classNames: ['box-view']
 });
 
