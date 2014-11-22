@@ -28,15 +28,15 @@ var Box = Ember.Object.extend({
 
 });
 
-var htmlbarsTemplate = Ember.Handlebars.compile($('#htmlbars-box').text().trim());
+var htmlbarsTemplate = Ember.Handlebars.compile($('#handlebars-box').text().trim());
 
 var BoxView = Ember.View.extend({
     template: htmlbarsTemplate,
+    // templateName: "box",
     classNames: ['box-view']
 });
 
 var boxes;
-    
 // var App = Ember.Application.create();
 
 var emberInit = function() {
@@ -45,8 +45,10 @@ var emberInit = function() {
         var view = BoxView.create({context: box});
         view.appendTo('#grid');
         box.set('number', i);
+        console.log('view', view);
         return box;
     });
+    console.log("boxes", boxes);
 };
 
 var emberAnimate = function() {
@@ -64,7 +66,11 @@ window.runEmber = function() {
 };
 
 })();
-   
+// Ember end
+
+
+
+
 // Raw
 (function(){
 
@@ -113,6 +119,9 @@ window.runRawdog = function() {
 };
 
 })();
+
+
+
 
 
 window.timeout = null;

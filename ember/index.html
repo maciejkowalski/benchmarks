@@ -14,9 +14,11 @@
 
 <p id="timing">&nbsp;</p>
 <div id="grid"></div>
-        
-<script type="text/x-htmlbars" id="htmlbars-box">
-    <div class="box" id="{{number}}" style="{{style}}"> {{content}}</div>
+
+<script type="text/x-handlebars" id="handlebars-box" data-template-name="box">
+    <div class="box" {{bindAttr id="number" style="style"}}>
+      {{ content }}
+    </div>
 </script>
 
 <script src="ember-perf.js"></script>
