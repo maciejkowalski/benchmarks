@@ -45,10 +45,8 @@ var emberInit = function() {
         var view = BoxView.create({context: box});
         view.appendTo('#grid');
         box.set('number', i);
-        console.log('view', view);
         return box;
     });
-    console.log("boxes", boxes);
 };
 
 var emberAnimate = function() {
