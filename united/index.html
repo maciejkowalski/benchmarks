@@ -18,12 +18,14 @@
     <button onclick="runRawdog()">Animate with Raw JS + DOM</button>
 
     <p id="timing">&nbsp;</p>
+
     <div id="grid">
       <div class="box-view" ng:repeat="box in boxes">
-          <div class="box" ng:style="{top: box.top+'px', left: box.left+'px', background: 'rgb(0,0,'+box.color+')'}">{{box.content}}</div>
+          <div class="box" ng:style="{top: box.top+'px', left: box.left+'px', background: 'rgb(0,0,'+box.color+')'}">
+            {{box.content}}
+          </div>
       </div>
     </div>
-
   </div>
 
   <script type="text/x-handlebars" id="handlebars-box">
