@@ -29,7 +29,7 @@ window.benchmarkLoop = function(fn) {
 // The AngularJS implementation:
 var animationApp = angular.module('animationApp', []);
 
-function animationCtrl($scope, $window, $rootScope) {
+angular.module("animationApp").controller("AnimationCtrl", function ($scope, $window, $rootScope) {
     var self = this;
     var start, counter = 0, totalTime = 0;
     $scope.count = 0;
@@ -77,7 +77,7 @@ function animationCtrl($scope, $window, $rootScope) {
         $scope.angularjsInit();
         $scope.angularjsAnimate();
     }
-}
+});
 
 
 // Raw
